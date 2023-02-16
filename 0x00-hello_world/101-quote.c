@@ -11,6 +11,8 @@
 
 int main(void)
 {
-	fprintf(stderr, "and the piece of art is useful\" - Dora Korpar, 2015-10-19\n");
+	char* data[] =  "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	fprintf(stderr, data);
+
 	return (1);
 }
