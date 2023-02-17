@@ -21,13 +21,12 @@ int main(void)
 		putchar(letters[counter]);
 	}
 
-	for (counter = 0; counter < 26; counter++)
+	for (counter = 0; counter < 27; counter++)
 	{
 		if (letters[counter] == 'e' || letters[counter] == 'q')
 			continue;
-		putchar((char) toupper(letters[counter]));
+		putchar(counter == 26 ? '\n' : (char) toupper(letters[counter]));
 	}
 
-	putchar('\n');
 	return (0);
 }
