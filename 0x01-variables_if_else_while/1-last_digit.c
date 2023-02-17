@@ -14,18 +14,20 @@
 int main(void)
 {
 	int n;
-	char *n_type;
+	int last_digit;
+	char *description;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
+	last_digit = n % 10;
 
-	if (n == 0)
-		n_type = " is zero";
-	else if (n > 0)
-		n_type = " is positive";
+	if (last_digit == 0)
+		description = "and is 0";
+	else if (last_digit > 5)
+		description = "and is greater than 5";
 	else
-		n_type = " is negative";
+		description = "and is less than 6 and not 0";
 
-	printf("%d%s\n", n, n_type);
+	printf("Last digit of %d is %d %s\n", n, last_digit, description);
 	return (0);
 }
