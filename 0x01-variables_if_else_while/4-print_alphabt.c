@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 
 /**
  * main - Entry point
@@ -14,18 +13,11 @@ int main(void)
 	char letters[] = "abcdefghijklmnopqrstuvwxyz";
 	int counter;
 
-	for (counter = 0; counter < 26; counter++)
-	{
-		if (letters[counter] == 'e' || letters[counter] == 'q')
-			continue;
-		putchar(letters[counter]);
-	}
-
 	for (counter = 0; counter < 27; counter++)
 	{
 		if (letters[counter] == 'e' || letters[counter] == 'q')
 			continue;
-		putchar(counter == 26 ? '\n' : (char) toupper(letters[counter]));
+		putchar(counter == 26 ? '\n' : letters[counter]);
 	}
 
 	return (0);
