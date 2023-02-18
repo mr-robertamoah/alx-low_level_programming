@@ -10,34 +10,28 @@
 
 int main(void)
 {
-	int i, j, k, l;
+	int i, j;
 	int stop = 1;
 
-	for (i = 0; i < 10 && stop; i++)
+	for (i = 0; i < 100 && stop; i++)
 	{
-		for (j = 0; j < 10 && stop; j++)
+		for (j = 1; j < 100 && stop; j++)
 		{
-			for (k = 0; k < 10 && stop; k++)
-			{
-				for (l = k == 0 ? j + 1 : 0; l < 10 && stop; l++)
-				{
-					putchar('0' + i);
-					putchar('0' + j);
-					putchar(' ');
-					putchar('0' + k);
-					putchar('0' + l);
+			putchar((i / 10) + '0');
+			putchar((i % 10) + '0');
+			putchar(' ');
+			putchar((j / 10) + '0');
+			putchar((j % 10) + '0');
 
-					if (i == 9 && j == 8 && k == 9 && l == 9)
-					{
-						stop = 0;
-						continue;
-					}
-					else
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
+			if (i == 98 && j == 99)
+			{
+				stop = 0;
+				continue;
+			}
+			else
+			{
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}
