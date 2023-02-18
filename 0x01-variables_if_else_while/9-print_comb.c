@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	int max_num = 99;
+	int max_num = 9;
 	int counter = 0;
 
 	while (counter < max_num)
