@@ -11,14 +11,15 @@
 int main(void)
 {
 	int i, j, k, l;
+	int stop = 1;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 10 && stop; i++)
 	{
-		for (j = 0; j < 9; j++)
+		for (j = 0; j < 10 && stop; j++)
 		{
-			for (k = 0; k < 10; k++)
+			for (k = 0; k < 10 && stop; k++)
 			{
-				for (l = k == 0 ? 1 : 0; l < 10; l++)
+				for (l = k == 0 ? j + 1 : 0; l < 10 && stop; l++)
 				{
 					putchar('0' + i);
 					putchar('0' + j);
@@ -27,10 +28,16 @@ int main(void)
 					putchar('0' + l);
 
 					if (i == 9 && j == 8 && k == 9 && l == 9)
+					{
+						stop = 0;
 						continue;
-
-					putchar(',');
-				}	putchar(' ');
+					}
+					else
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
 			}
 		}
 	}
