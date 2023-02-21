@@ -2,11 +2,11 @@
 
 /**
  * _abs - main code
- * @n: this is the number which has its absolute 
+ * @n: this is the number which has its absolute
  * number printed
  *
  * Description: this returns the absolute number
- * of the input @n 
+ * of the input @n
  *
  * Return: int
  */
