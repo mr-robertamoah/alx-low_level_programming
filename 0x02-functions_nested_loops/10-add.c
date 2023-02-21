@@ -2,6 +2,8 @@
 
 /**
  * add - adds numbers
+ * @a: an operand
+ * @b: an operand
  *
  * Description: this adds two ints
  *
