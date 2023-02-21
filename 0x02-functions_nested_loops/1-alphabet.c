@@ -9,22 +9,21 @@
  */
 void print_alphabet(void)
 {
-	char alphabets = "abcdefghijklmnopqrstuvwxyz";
+	char alphabets[] = "abcdefghijklmnopqrstuvwxyz";
 	int len = 26;
-	counter = 0;
+	int counter = 0;
 
 	while (counter < len)
 	{
 		_putchar(alphabets[counter]);
+		counter++;
 	}
 
 	_putchar('\n');
 }
 
 /**
- * main - Entry point
- *
- * Description: print alphabets in lowercase using the putchar
+ * main - check the code
  *
  * Return: returns 0 (Success)
  */
