@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_alphabet - Entry point
+ * print_alphabet_x10 - Entry point
  *
  * Description: print alphabets in lowercase using the _putchar, 10 times
  *
@@ -14,7 +14,7 @@ void print_alphabet_x10(void)
 	int counter;
 	int times = 0;
 
-	while(times < 10)
+	while (times < 10)
 	{
 		counter = 0;
 
