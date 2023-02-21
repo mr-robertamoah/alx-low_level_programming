@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * islower - main code
+ * _islower - main code
  * @c - this is the value which has its case checked
- * Description: this checks whether or no an alphabet is 
+ *
+ * Description: this checks whether or no an alphabet is
  * in lowercase or not
  *
  * Return: 0 when alphabet is lower and 1 if not
