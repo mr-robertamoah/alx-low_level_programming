@@ -2,7 +2,7 @@
 
 /**
  * _islower - main code
- * @c - this is the value which has its case checked
+ * @c: this is the value which has its case checked
  *
  * Description: this checks whether or no an alphabet is
  * in lowercase or not
