@@ -11,7 +11,7 @@
  * Return: int
  */
 
-int print_sign(int n)
+int _abs(int n)
 {
 	int result;
 
