@@ -24,14 +24,15 @@ void print_delim(void)
 int main(void)
 {
 	int fibo_count = 2;
-	unsigned long int sum = 0;
+	unsigned long int sum;
 	unsigned long int fnum = 1;
 	unsigned long int p1 = 1;
 	unsigned long int p2 = 2;
 
+	sum = p2;
+
 	while (fibo_count < 50)
 	{
-
 		fnum = p1 + p2;
 		p1 = p2;
 		p2 = fnum;
