@@ -1,41 +1,5 @@
-#include "main.h"
+#include <stdio.h>
 
-/**
- * print_n - print number
- * @n: the int to print from
- *
- * Description: print one or two digits numbers
- *
- * Return: void
- */
-void print_n(int n)
-{
-	if (n > 9)
-		_putchar('0' + n);
-	_putchar('0' + n);
-}
-/**
- * print_number - print number
- * @n: the int to print from
- *
- * Description: print one or two digits numbers
- *
- * Return: void
- */
-void print_number(int n)
-{
-	int div = n / 10;
-	int mod = n % 10;
-
-	if (div >= 1)
-	{
-		print_number(div);
-		print_number(mod);
-		return;
-	}
-
-	print_n(n);
-}
 /**
  * n_is_multiple_m - modulus function
  * @n: the input which is being determined to be a multiple
@@ -72,6 +36,6 @@ int main(void)
 			sum = sum + count;
 	}
 
-	print_number(sum);
+	printf("%i", sum);
 	return (0);
 }
