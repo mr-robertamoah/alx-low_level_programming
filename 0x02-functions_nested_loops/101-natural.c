@@ -34,6 +34,8 @@ int main(void)
 	{
 		if (n_is_multiple_m(count, 3) || n_is_multiple_m(count, 5))
 			sum = sum + count;
+
+		count++;
 	}
 
 	printf("%i\n", sum);
