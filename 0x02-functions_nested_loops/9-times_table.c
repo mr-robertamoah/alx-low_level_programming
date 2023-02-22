@@ -48,10 +48,16 @@ void times_table(void)
 			}
 
 			_putchar(',');
-			_putchar(' ');
 
-			if ((first_digit * second_digit) <= 9)
+			if ((first_digit * second_digit) > 9)
+			{
 				_putchar(' ');
+			}
+			else
+			{
+				_putchar(' ');
+				_putchar(' ');
+			}
 
 			second_digit++;
 		}
