@@ -11,7 +11,7 @@
  */
 int n_is_multiple_m(int n, int m)
 {
-	if (m < n && (n % m) == 0)
+	if (m <= n && (n % m) == 0)
 		return (1);
 
 	return (0);
