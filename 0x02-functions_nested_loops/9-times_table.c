@@ -1,19 +1,4 @@
-#include "main.h" 
-
-void print_two_digits(int n);
-
-/**
- * print_two_digits - prints digits
- * @n: this is the digit printed
- *
- * Description: this prints the digits in two characters
- */
-void print_two_digits(int n)
-{
-	if (n > 9)
-		_putchar(n / 10 + '0');
-	_putchar('0' + n % 10);
-}
+#include "main.h"
 
 /**
  * times_table - prints times table
@@ -29,41 +14,25 @@ void times_table(void)
 	int second_digit;
 	int result;
 
-	first_digit = 0;
-
-	while (first_digit < 10)
+	for (first_digit = 0; first_digit < 10; first_digit++)
 	{
-		second_digit = 0;
+		_putchar('0');
 
-		while (second_digit < 10)
+		for (second_digit = 1; second_digit < 10; second_digit++)
 		{
-			result = first_digit * second_digit;
-
-			print_two_digits(result);
-
-			if (second_digit == 9)
-			{
-				_putchar('\n');
-				break;
-			}
-
 			_putchar(',');
+			_putchar(' ');
 
-			if ((first_digit * second_digit) > 9)
-			{
+			result = first_digit * second_digit;
+			
+			if (result <= 9)
 				_putchar(' ');
-			}
 			else
-			{
-				_putchar(' ');
-				_putchar(' ');
-			}
+				_putchar('0' + (result / 10));
 
-			second_digit++;
+			_putchar('0' + (result % 10));
 		}
 
-		first_digit++;
+		_putchar('\n');
 	}
-
-	return;
 }
