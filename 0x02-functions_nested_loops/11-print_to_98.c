@@ -10,6 +10,8 @@
  */
 void print_number(int n)
 {
+	int islast = n == 98;
+
 	if (n < 0)
 	{
 		_putchar('-');
@@ -18,8 +20,13 @@ void print_number(int n)
 
 	if (n > 99)
 	{
+		int mod = n % 100;
+
 		_putchar('0' + n / 100);
-		n = n % 100;
+		n = mod;
+
+		if (mod < 10)
+			_putchar('0');
 	}
 
 	if (n > 9)
@@ -27,7 +34,7 @@ void print_number(int n)
 
 	_putchar('0' + n % 10);
 
-	if (n == 98)
+	if (islast)
 	{
 		_putchar('\n');
 		return;
