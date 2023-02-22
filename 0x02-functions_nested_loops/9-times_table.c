@@ -24,7 +24,7 @@ void times_table(void)
 			_putchar(' ');
 
 			result = first_digit * second_digit;
-			
+
 			if (result <= 9)
 				_putchar(' ');
 			else
