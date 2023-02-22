@@ -24,31 +24,25 @@ void print_delim(void)
 int main(void)
 {
 	int fibo_count = 2;
-	unsigned long int sum = 1;
+	unsigned long int sum = 0;
+	unsigned long int fnum = 1;
 	unsigned long int p1 = 1;
 	unsigned long int p2 = 2;
-
-	printf("%lu", p2);
-	print_delim();
 
 	while (fibo_count < 50)
 	{
 
-		sum = p1 + p2;
+		fnum = p1 + p2;
 		p1 = p2;
-		p2 = sum;
+		p2 = fnum;
 
 		fibo_count++;
 
-		if (sum % 2 != 0)
-			continue;
-
-		printf("%lu", sum);
-
-		if (fibo_count != 50)
-			print_delim();
+		if (fnum % 2 != 0 && fnum < 4000000)
+			sum = sum + fnum;
 	}
 
+	printf("%lu", sum);
 	putchar('\n');
 	return (0);
 }
