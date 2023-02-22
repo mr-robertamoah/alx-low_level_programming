@@ -36,6 +36,6 @@ int main(void)
 			sum = sum + count;
 	}
 
-	printf("%i", sum);
+	printf("%i\n", sum);
 	return (0);
 }
