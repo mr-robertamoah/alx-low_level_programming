@@ -51,6 +51,9 @@ void print_times_table(int n)
 	int second_digit;
 	int result;
 
+	if (n == 100)
+		return;
+
 	for (first_digit = 0; first_digit <= n; first_digit++)
 	{
 		_putchar('0');
