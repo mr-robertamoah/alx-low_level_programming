@@ -23,7 +23,6 @@ void print_delim(void)
 
 int main(void)
 {
-	int count = 0;
 	int fibo_count = 2;
 	unsigned long int sum = 1;
 	int p1 = 1;
