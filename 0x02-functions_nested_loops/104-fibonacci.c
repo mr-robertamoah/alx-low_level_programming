@@ -24,13 +24,13 @@ void print_delim(void)
 int main(void)
 {
 	int fibo_count = 2;
-	unsigned long int sum = 1;
-	unsigned long int p1 = 1;
-	unsigned long int p2 = 2;
+	unsigned long long int sum = 1;
+	unsigned long long int p1 = 1;
+	unsigned long long int p2 = 2;
 
-	printf("%lu", p1);
+	printf("%llu", p1);
 	print_delim();
-	printf("%lu", p2);
+	printf("%llu", p2);
 
 	while (fibo_count < 98)
 	{
@@ -42,7 +42,7 @@ int main(void)
 
 		fibo_count++;
 
-		printf("%lu", sum);
+		printf("%llu", sum);
 	}
 
 	putchar('\n');
