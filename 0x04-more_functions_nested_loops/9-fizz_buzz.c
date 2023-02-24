@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * print_buzz - print
@@ -9,10 +9,10 @@
  */
 void print_buzz(void)
 {
-	putchar('B');
-	putchar('u');
-	putchar('z');
-	putchar('z');
+	_putchar('B');
+	_putchar('u');
+	_putchar('z');
+	_putchar('z');
 }
 
 /**
@@ -24,10 +24,10 @@ void print_buzz(void)
  */
 void print_fuzz(void)
 {
-	putchar('F');
-	putchar('u');
-	putchar('z');
-	putchar('z');
+	_putchar('F');
+	_putchar('u');
+	_putchar('z');
+	_putchar('z');
 }
 
 /**
@@ -51,9 +51,9 @@ void print_number(int n)
 	}
 
 	if (n > 9)
-		putchar('0' + n / 10);
+		_putchar('0' + n / 10);
 
-	putchar('0' + n % 10);
+	_putchar('0' + n % 10);
 }
 
 /**
@@ -102,8 +102,10 @@ int main(void)
 	while (i <= 100)
 	{
 		print_i(i);
-		putchar(' ');
 		i++;
+		if (i != 100)
+			_putchar(' ');
 	}
-	putchar('\n');
+
+	_putchar('\n');
 }
