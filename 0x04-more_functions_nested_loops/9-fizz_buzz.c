@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * print_buzz - print
@@ -9,10 +9,10 @@
  */
 void print_buzz(void)
 {
-	_putchar('B');
-	_putchar('u');
-	_putchar('z');
-	_putchar('z');
+	putchar('B');
+	putchar('u');
+	putchar('z');
+	putchar('z');
 }
 
 /**
@@ -24,36 +24,10 @@ void print_buzz(void)
  */
 void print_fizz(void)
 {
-	_putchar('F');
-	_putchar('i');
-	_putchar('z');
-	_putchar('z');
-}
-
-/**
- * print_number - print
- * @n: number to print
- *
- * Description: prints the input
- *
- * Return: void
- */
-void print_number(int n)
-{
-	int div = n / 10;
-	int mod = n % 10;
-
-	if (div >= 10)
-	{
-		print_number(div);
-		print_number(mod);
-		return;
-	}
-
-	if (n > 9)
-		_putchar('0' + n / 10);
-
-	_putchar('0' + n % 10);
+	putchar('F');
+	putchar('i');
+	putchar('z');
+	putchar('z');
 }
 
 /**
@@ -83,7 +57,10 @@ void print_i(int i)
 		return;
 	}
 
-	print_number(i);
+	if (i > 9)
+		putchar('0' + i / 10);
+
+	putchar('0' + i % 10);
 }
 
 /**
@@ -104,10 +81,10 @@ int main(void)
 		print_i(i);
 		i++;
 		if (i != 100)
-			_putchar(' ');
+			putchar(' ');
 	}
 
-	_putchar('\n');
+	putchar('\n');
 
 	return (0);
 }
