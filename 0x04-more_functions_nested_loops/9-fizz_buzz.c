@@ -16,16 +16,16 @@ void print_buzz(void)
 }
 
 /**
- * print_fuzz - print
+ * print_fizz - print
  *
  * Description: prints the input
  *
  * Return: void
  */
-void print_fuzz(void)
+void print_fizz(void)
 {
 	_putchar('F');
-	_putchar('u');
+	_putchar('i');
 	_putchar('z');
 	_putchar('z');
 }
@@ -68,13 +68,13 @@ void print_i(int i)
 {
 	if (i % 3 == 0 && i % 5 == 0)
 	{
-		print_fuzz();
+		print_fizz();
 		print_buzz();
 		return;
 	}
 	else if (i % 3 == 0)
 	{
-		print_fuzz();
+		print_fizz();
 		return;
 	}
 	else if (i % 5 == 0)
@@ -90,7 +90,7 @@ void print_i(int i)
  * main - Entry point
  *
  * Description: print numbers from 1 to 100 as well
- * as fuzz, buzz and fuzzbuzz based on condition
+ * as fizz, buzz and fizzbuzz based on condition
  *
  * Return: returns 0 (Success)
  */
