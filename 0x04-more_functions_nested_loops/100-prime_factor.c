@@ -11,7 +11,7 @@
 
 int main(void)
 {
-	unsigned long int current = 2, number, highest;
+	long int current = 2, number, highest;
 
 	number = 612852475143;
 	highest = 2;
@@ -27,7 +27,6 @@ int main(void)
 			number = number / current;
 		}
 	}
-
 
 	printf("%lu\n", highest);
 	return (0);
