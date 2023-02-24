@@ -79,9 +79,9 @@ int main(void)
 	while (i <= 100)
 	{
 		print_i(i);
-		i++;
 		if (i != 100)
 			putchar(' ');
+		i++;
 	}
 
 	putchar('\n');
