@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-#define number 612852475143
+#include <math.h>
 
 int is_prime(long int);
 
@@ -15,15 +14,18 @@ int is_prime(long int);
 
 long int get_next_prime(long int n)
 {
+	long int number = 1;
 	n++;
-
+	puts("in get next prime");
 	while (n <= number)
 	{
+	puts("in get next prime loop");
 		if (is_prime(n))
 			return (n);
 
 		n++;
 	}
+	puts("out of get next prime");
 
 	return (--n);
 }
@@ -41,13 +43,16 @@ long int get_next_prime(long int n)
 int is_prime(long int n)
 {
 	long int i = 1;
+	puts("in is prime");
 
 	for (i = 2; i < n; n++)
 	{
+	puts("in is prime loop");
 		if (n % i == 0)
 			return (0);
 	}
 
+	puts("out of is prime");
 	return (1);
 }
 
@@ -61,17 +66,35 @@ int is_prime(long int n)
 
 int main(void)
 {
-	unsigned long int current, prime, highest;
+	unsigned long int current = 2, number, highest, i;
+	int it_is_prime;
 
-	for (current = 1; current <= number; current++)
+	number = 612852475143;
+
+	while (current <= number)
 	{
-		prime = get_next_prime(current);
+		if (number % current != 0)
+		{
+			current++;
+			continue;
+		}
 
-		if (number % prime == 0)
-			highest = prime;
+		it_is_prime = 1;
+
+		for (i = 2; i <= current / 2; i++)
+		{
+			if (current % i == 0)
+			{
+				it_is_prime = 0;
+				break;
+			}
+		}
+
+		if (it_is_prime)
+			highest = current;
+
+		current++;
 	}
-
 	printf("%lu\n", highest);
-
 	return (0);
 }
