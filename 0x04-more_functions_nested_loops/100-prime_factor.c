@@ -28,6 +28,9 @@ int main(void)
 		}
 	}
 
-	printf("%lu\n", highest);
+	if (number > 2)
+		highest = number;
+
+	printf("%ld\n", highest);
 	return (0);
 }
