@@ -13,6 +13,9 @@ void print_square(int n)
 {
 	int c = 1, b;
 
+	if (n < 1)
+		_putchar('\n');
+
 	while (c <= n)
 	{
 		b = 1;
