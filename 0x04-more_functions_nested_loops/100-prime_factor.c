@@ -16,10 +16,10 @@ int main(void)
 	number = 612852475143;
 	highest = 2;
 
-	while(number % 2 == 0)
+	while (number % 2 == 0)
 		number = number / 2;
 
-	for (current = 3; current <= sqrt(number); current++)
+	for (current = 3; current <= sqrt(number); current = current + 2)
 	{
 		while (number % current == 0)
 		{
