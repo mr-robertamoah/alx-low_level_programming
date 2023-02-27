@@ -12,9 +12,9 @@
 int _strlen(char *s)
 {
 	char i = 0;
-	int count;
+	int count = 1;
 
-	while (*(s + i) != '\0')
+	while (s[i] != '\0')
 	{
 		count++;
 
