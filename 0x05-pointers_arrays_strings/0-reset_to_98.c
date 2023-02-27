@@ -2,7 +2,7 @@
 
 /**
  * reset_to_98 - reset an int
- * @*n: this is the pointer to the int variable
+ * @n: this is the pointer to the int variable
  *
  * Description: this resets the value of an
  * variable
