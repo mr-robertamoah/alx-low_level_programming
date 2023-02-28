@@ -14,6 +14,12 @@ void print_array(int *a, int n)
 {
 	int i = 0;
 
+	if (n < 1)
+	{
+		_putchar('\n');
+		return;
+	}
+
 	while (i <= n - 1)
 	{
 		if (i < n - 1)

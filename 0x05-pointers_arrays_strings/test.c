@@ -16,5 +16,12 @@ int array[5];
     array[3] = 298;
     array[4] = -1024;
     print_array(array, 5);
+
+int array1[1] = {
+		98
+	};
+
+	print_array(array1, 0);
+	print_array(array1, -1);
     return (0);
 }
