@@ -19,7 +19,7 @@ int main(void)
 	char password[100];
 	int i, rnum;
 
-	srand(time(NULL));
+	srand((unsigned int) time(NULL));
 
 	for (i = 0; i < 50; i++)
 	{
