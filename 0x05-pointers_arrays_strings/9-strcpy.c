@@ -31,7 +31,6 @@ int _strlen(char *s)
 
 char *_strcpy(char *dest, char *src)
 {
-	int len = _strlen(src) + 1;
 	int i = 0;
 
 	if (src[i] == '\0')
