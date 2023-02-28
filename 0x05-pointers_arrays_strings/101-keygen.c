@@ -12,27 +12,27 @@
 
 int main(void)
 {
-/*	char *uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; */
+	char *uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char *lowers = "abcdefghijklmnopqrstuvwxyz";
 	char *digits = "0123456789";
-/*	char *symbols = "!@#$^&*?"; */
+	char *symbols = "!@#$^&*?";
 	char password[100];
 	int i, rnum;
 
 	srand((unsigned int) time(NULL));
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 100; i++)
 	{
-		rnum = rand() % 6;
+		rnum = rand() % 4;
 
-		if (rnum >= 0 && rnum <= 2)
+		if (rnum >= 0)
 			password[i] = lowers[i];
-/*		else if (rnum == 2 || (rnum == 0 && i == 0)) */
-/*			password[i] = lowers[i]; */
+		else if (rnum == 2 || (rnum == 0 && i == 0))
+			password[i] = upppers[i];
 		else
 			password[i] = digits[i];
-/*		else */
-		/*	password[i] = symbols[i]; */
+		else
+			password[i] = symbols[i];
 
 	}
 
