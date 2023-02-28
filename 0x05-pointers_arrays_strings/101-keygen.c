@@ -25,11 +25,11 @@ int main(void)
 	{
 		rnum = rand() % 4;
 
-		if (rnum >= 0)
+		if (rnum == 1)
 			password[i] = lowers[i];
 		else if (rnum == 2 || (rnum == 0 && i == 0))
 			password[i] = uppers[i];
-		else
+		else if (rnum == 3)
 			password[i] = digits[i];
 		else
 			password[i] = symbols[i];
