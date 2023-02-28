@@ -28,7 +28,7 @@ int main(void)
 		if (rnum >= 0)
 			password[i] = lowers[i];
 		else if (rnum == 2 || (rnum == 0 && i == 0))
-			password[i] = upppers[i];
+			password[i] = uppers[i];
 		else
 			password[i] = digits[i];
 		else
