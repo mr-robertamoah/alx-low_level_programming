@@ -37,7 +37,7 @@ char *_strcpy(char *dest, char *src)
 	if (len <= 1)
 	{
 		_putchar('\n');
-		return;
+		return (dest);
 	}
 
 	while (src[i] != '\0')
