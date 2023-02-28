@@ -50,7 +50,8 @@ int _strlen(char *s)
 
 int _atoi(char *s)
 {
-	int len = _strlen(s), i = 0, number = 0, d = 0;
+	int len = _strlen(s), i = 0, d = 0;
+	unsigned int number = 0;
 
 	for (i = 0; i < len; i++)
 	{
@@ -63,18 +64,12 @@ int _atoi(char *s)
 		if (is_number(s[i]))
 		{
 			number = number * 10 + (s[i] - '0');
-			/* f = 1; */
 
-			if (! is_number(s[i + 1]))
+			if (!is_number(s[i + 1]))
 				break;
-
-			/* f = 0; */
 		}
 
 	}
-
-	/* if (f == 0)*/
-		/* return (0); */
 
 	if (d % 2)
 		number *= -1;
