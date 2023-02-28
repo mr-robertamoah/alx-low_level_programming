@@ -16,16 +16,16 @@ int main(void)
 	char *lowers = "abcdefghijklmnopqrstuvwxyz";
 	char *digits = "0123456789";
 /*	char *symbols = "!@#$^&*?"; */
-	char password[7];
+	char password[6];
 	int i, rnum;
 
 	srand((unsigned int) time(NULL));
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 6; i++)
 	{
-		rnum = rand() % 2;
+		rnum = rand() % 6;
 
-		if (rnum == 0)
+		if (rnum >= 0 && rnum <= 2)
 			password[i] = lowers[i];
 /*		else if (rnum == 2 || (rnum == 0 && i == 0)) */
 /*			password[i] = lowers[i]; */
