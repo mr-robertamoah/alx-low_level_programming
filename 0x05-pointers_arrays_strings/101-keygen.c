@@ -16,7 +16,7 @@ int main(void)
 	char *lowers = "abcdefghijklmnopqrstuvwxyz";
 	char *digits = "0123456789";
 	char *symbols = "!@#$^&*?";
-	char password[50];
+	char password[100];
 	int i, rnum;
 
 	srand(time(NULL));
