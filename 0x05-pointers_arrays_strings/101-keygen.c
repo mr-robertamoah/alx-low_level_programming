@@ -34,8 +34,11 @@ int main(void)
 		else
 			password[i] = symbols[i];
 
-		printf("%c", password[i]);
 	}
+
+	password[i] = '\0';
+
+	printf("%s", password);
 
 	return (0);
 }
