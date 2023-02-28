@@ -34,9 +34,10 @@ char *_strcpy(char *dest, char *src)
 	int len = _strlen(src) + 1;
 	int i = 0;
 
-	if (len <= 1)
+	if (src[i] == '\0')
 	{
-		_putchar('\n');
+		dest[i] = '\n';
+
 		return (dest);
 	}
 
