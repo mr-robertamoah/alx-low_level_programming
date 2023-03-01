@@ -19,28 +19,31 @@ int _strlen(char *c)
 }
 
 /**
- * _strncat - concatenate
+ * _strncpy - copy
  * @dest: pointer to string
  * @src: pointer to string
  * @n: number of bytes to copy
  *
- * Description: concatenant two strings
+ * Description: copy one string into another
  *
  * Return: char *
  */
 
-char *_strncat(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int len1 = _strlen(dest);
-	int len2 = _strlen(src);
+	int len = _strlen(src);
 	int i;
 
-	for (i = 0; i <= len2; i++)
+	for (i = 0; i < n; i++)
 	{
-		if (i == n - 1)
-			break;
+		if (i >= len)
+		{
+			*(dest + i) = '\0';
+			
+			continue;
+		}
 
-		*(dest + len1 + i) = src[i];
+		*(dest + i) = src[i];
 	}
 
 	return (dest);
