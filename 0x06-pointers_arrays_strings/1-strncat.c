@@ -35,7 +35,7 @@ char *_strncat(char *dest, char *src, int n)
 	int len2 = _strlen(src);
 	int i;
 
-	for (i = 0; i <= len2; i++)
+	for (i = 0; i < len2; i++)
 	{
 		if (i == n - 1)
 			break;
