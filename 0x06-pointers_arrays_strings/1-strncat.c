@@ -37,7 +37,7 @@ char *_strncat(char *dest, char *src, int n)
 
 	for (i = 0; i < len2; i++)
 	{
-		if (i == n - 1)
+		if (i == n)
 			break;
 
 		*(dest + len1 + i) = src[i];
