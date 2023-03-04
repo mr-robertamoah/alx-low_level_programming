@@ -12,9 +12,9 @@
  */
 int is_valid(char a)
 {
-	int result = 1;
+	int result = 1, b = (int) a;
 
-	if (a == '\n' || !a || strstr("\1\2\3\4\5\6\7", &a))
+	if (b < 32 || b > 132)
 		result = 0;
 
 	return (result);
