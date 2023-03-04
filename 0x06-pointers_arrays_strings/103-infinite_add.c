@@ -146,10 +146,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		s++;
 	}
 
-	rev_array(r, s);
 
 	if (s >= size_r)
 		return (0);
 	*(r + s) = '\0';
+	rev_array(r, s);
 	return (r);
 }
