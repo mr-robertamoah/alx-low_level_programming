@@ -14,7 +14,7 @@ int is_valid(char a)
 {
 	int result = 1, b = (int) a;
 
-	if (b < 32 || b > 132)
+	if (b < 32 || b > 126)
 		result = 0;
 
 	return (result);
