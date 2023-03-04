@@ -150,6 +150,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	if (s >= size_r)
 		return (0);
-
+	*(r + s) = '\0';
 	return (r);
 }
