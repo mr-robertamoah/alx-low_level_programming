@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+#include <ctype.h>
 
 /**
  * is_valid - check
@@ -14,7 +14,7 @@ int is_valid(char a)
 {
 	int result = 1, b = (int) a;
 
-	if (b < 32 || b > 126)
+	if (!isprint(b))
 		result = 0;
 
 	return (result);
