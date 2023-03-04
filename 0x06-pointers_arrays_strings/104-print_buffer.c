@@ -34,6 +34,9 @@ void print_buffer(char *b, int size)
 	int i, j, exceeded = 0;
 	char val;
 
+	if (size <= 0)
+		printf("\n");
+
 	for (i = 0; i < size; i += 10)
 	{
 		printf("%08x: ", i);
@@ -53,7 +56,6 @@ void print_buffer(char *b, int size)
 			if (j % 2 == 1)
 				printf(" ");
 		}
-
 		printf(" ");
 
 		for (j = 0; j < 10; j++)
@@ -64,10 +66,8 @@ void print_buffer(char *b, int size)
 				continue;
 
 			val = *(b + i + j);
-
 			printf("%c", is_valid(val) ? val : '.');
 		}
-
 		printf("\n");
 	}
 }
