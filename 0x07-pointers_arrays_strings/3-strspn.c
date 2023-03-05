@@ -49,7 +49,6 @@ unsigned int  _strspn(char *s, char *accept)
 		if (_strchr(s, *(accept + i)))
 		{
 			count++;
-			printf("%c %s \n", *(s + i), accept);
 		}
 	}
 
