@@ -41,17 +41,20 @@ unsigned int  _strspn(char *s, char *accept)
 {
 	unsigned int i, count = 0;
 
-	for (i = 0; *(accept + i) != '\0' || *(accept + i) == '\0'; i++)
+	if (!(*accept))
+		return (count);
+
+	for (i = 0; *(accept + i) != '\0'; i++)
 	{
 		if (_strchr(s, *(accept + i)))
 		{
 			count++;
 			printf("%c %s \n", *(s + i), accept);
 		}
-
-		if (*(accept + i) == '\0')
-			break;
 	}
+
+	if (*(accept + i) == '\0' && _strchr(s, *(accept + i)))
+		count++;
 
 	return (count);
 }
