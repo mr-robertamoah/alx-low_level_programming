@@ -44,16 +44,17 @@ unsigned int  _strspn(char *s, char *accept)
 	if (!(*accept))
 		return (count);
 
-	for (i = 0; *(accept + i) != '\0'; i++)
+	for (i = 0; *(s + i) != '\0'; i++)
 	{
-		if (_strchr(s, *(accept + i)))
+		if (_strchr(accept, *(s + i)))
 		{
 			count++;
+			continue;
 		}
-	}
 
-	if (*(accept + i) == '\0' && _strchr(s, *(accept + i)))
-		count++;
+		if (count)
+			break;
+	}
 
 	return (count);
 }
