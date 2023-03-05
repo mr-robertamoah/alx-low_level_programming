@@ -14,6 +14,9 @@ char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i, j, track;
 
+	if (*needle == '\0')
+		return (NULL);
+
 	for (i = 0; *(haystack + i) != '\0'; i++)
 	{
 		track = *needle == *(haystack + i);
