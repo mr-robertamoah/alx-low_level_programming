@@ -14,15 +14,12 @@ char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i, j, track;
 
-	if (*needle == '\0')
+	if (!(*needle) || !(*haystack))
 		return (NULL);
 
 	for (i = 0; *(haystack + i) != '\0'; i++)
 	{
 		track = *needle == *(haystack + i);
-
-		if (!track)
-			continue;
 
 		for (j = 1; *(needle + j) != '\0'; j++)
 		{
