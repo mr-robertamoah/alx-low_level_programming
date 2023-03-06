@@ -1,6 +1,24 @@
 #include <stdio.h>
 
 /**
+ * _strlen - get len
+ * @c: pointer to buffer
+ *
+ * Description: get length of the string
+ *
+ * Return: int
+ */
+int _strlen(char *c)
+{
+	int i = 0;
+
+	while (c[i] != '\0')
+		i++;
+
+	return (i);
+}
+
+/**
  * _strstr - get substring
  * @haystack: pointer to buffer
  * @needle: pointer to chars to search for
@@ -13,8 +31,9 @@
 char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i, j, track;
+	int nlen = _strlen(needle), hlen = _strlen(haystack);
 
-	if (!(*needle) || !(*haystack))
+	if (!(*needle) || !(*haystack) || (nlen > hlen))
 		return (NULL);
 
 	for (i = 0; *(haystack + i) != '\0'; i++)
@@ -33,7 +52,8 @@ char *_strstr(char *haystack, char *needle)
 		if (!track)
 			continue;
 
-		return ((haystack + i));
+		if (*(needle + j) == '\0')
+			return ((haystack + i));
 	}
 
 	return (NULL);
