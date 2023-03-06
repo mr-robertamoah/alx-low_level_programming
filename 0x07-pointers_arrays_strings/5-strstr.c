@@ -33,7 +33,10 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int i, j, track;
 	int nlen = _strlen(needle), hlen = _strlen(haystack);
 
-	if (!(*needle) || !(*haystack) || (nlen > hlen))
+	if (nlen == 0)
+		return (haystack);
+
+	if (!(*needle) || !(*haystack) || (nlen > hlen) || (hlen == 0))
 		return (NULL);
 
 	for (i = 0, j = 0; *(haystack + i) != '\0' && *(needle + j) != '\0'; i++, j++)
