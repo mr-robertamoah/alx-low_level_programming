@@ -36,25 +36,23 @@ char *_strstr(char *haystack, char *needle)
 	if (!(*needle) || !(*haystack) || (nlen > hlen))
 		return (NULL);
 
-	for (i = 0; *(haystack + i) != '\0'; i++)
+	for (i = 0, j = 0; *(haystack + i) != '\0' && *(needle + j) != '\0'; i++, j++)
 	{
-		track = *needle == *(haystack + i);
-
-		for (j = 1; *(needle + j) != '\0'; j++)
+		if (*(needle + j) == *(haystack + i))
 		{
-			if (*(needle + j) != *(haystack + i + j))
-			{
-				track = 0;
-				break;
-			}
+			j++;
+		}
+		else
+		{
+			j = 0;
+			track = i + 1;
 		}
 
-		if (!track)
-			continue;
-
-		if (*(needle + j) == '\0')
-			return ((haystack + i));
+		i++;
 	}
+
+	if (*(needle + j) == '\0' && j != 0)
+		return ((haystack + track));
 
 	return (NULL);
 }
