@@ -12,6 +12,11 @@
 
 int is_sqr(int a, int b)
 {
+	if (b > 46340 * 2)
+		return (is_sqr(a, b / 2));
+	else if (b > 46340)
+		return (is_sqr(a, b - 1));
+
 	if (b * b == a)
 		return (b);
 	else if (b == 0 && a != b)
