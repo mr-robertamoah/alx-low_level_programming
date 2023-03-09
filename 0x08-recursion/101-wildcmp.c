@@ -63,14 +63,21 @@ int len(char *a)
 char *lichar(char *a, char b, char *c)
 {
 	if (*a == '\0' && *c != b)
+	{
 		return (a);
+	}
 	else if (*a == '\0' && *c == b)
-		return (c);
+	{
+		if (*c != *(c - 1))
+			return (c);
+
+		return (lichar(a, b, c - 1));
+	}
 
 	if (*a == b)
 		c = a;
-		
-	return lichar(a + 1, b, c);
+
+	return (lichar(a + 1, b, c));
 }
 
 /**
@@ -84,6 +91,7 @@ char *lichar(char *a, char b, char *c)
  */
 int is_equal(char *a,  char *b)
 {
+	printf("%c, %c \n", *a, *b);
 	if (*a != *b && *(b - 1) != '*' && *b != '*' && *(b + 1) != '\0')
 		return (0);
 	else if (*a == '\0' && *b == '*' && *(b + 1) == '\0')
@@ -95,7 +103,12 @@ int is_equal(char *a,  char *b)
 	else if (*b == '*' && *(b + 1) == '\0')
 		return (1);
 
-	if (*b == '*')
+	if (*b == '*' && *(b + 1) != '\0' &&  *(b + 2) == '*')
+	{
+
+		return (is_equal(a, b + 1));
+	}
+	else if (*b == '*')
 	{
 		b = cafterast(b + 1);
 		a = lichar(a, *b, a);
