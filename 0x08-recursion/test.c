@@ -10,11 +10,13 @@ int main(void)
 {
 int r;
 
-/*r = wildcmp("main.c", "*.c");
-    printf("%d\n", r);*/
+r = wildcmp("main.c", "*.c");
+    printf("%d\n", r);
+    r = wildcmp("school.c", "*.c");
+    printf("%d\n", r);
     r = wildcmp("school.c", "*s*c*h*o*o*l*.*c*");
     printf("%d\n", r);
-/*    r = wildcmp("main.c", "main.c");
+    r = wildcmp("main.c", "main.c");
     printf("%d\n", r);
     r = wildcmp("main.c", "m*c");
     printf("%d\n", r);
@@ -33,6 +35,6 @@ int r;
     r = wildcmp("main", "main*d");
     printf("%d\n", r);
     r = wildcmp("abc", "*b");
-    printf("%d\n", r);*/
+    printf("%d\n", r);
     return (0);
 }

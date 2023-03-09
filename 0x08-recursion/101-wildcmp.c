@@ -91,7 +91,7 @@ char *lichar(char *a, char b, char *c)
  */
 int is_equal(char *a,  char *b)
 {
-	printf("%c, %c \n", *a, *b);
+	/*printf("%c, %c \n", *a, *b);*/
 	if (*a != *b && *(b - 1) != '*' && *b != '*' && *(b + 1) != '\0')
 		return (0);
 	else if (*a == '\0' && *b == '*' && *(b + 1) == '\0')
