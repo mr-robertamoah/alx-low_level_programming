@@ -2,6 +2,8 @@
 
 /**
  * main - Entry point
+ * @argc: count of arguments
+ * @argv: array of string arguments
  *
  * Description: print alphabets in lowercase using the putchar
  *
