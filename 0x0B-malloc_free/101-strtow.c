@@ -111,7 +111,7 @@ char **strtow(char *str)
 		{
 			if (!wactive)
 			{
-				word = malloc((_nextspace(str, i) - i) * sizeof(char));
+				word = malloc((_nextspace(str, i) - i + 1) * sizeof(char));
 				if (word == NULL)
 				{
 					freea(a, cword);
