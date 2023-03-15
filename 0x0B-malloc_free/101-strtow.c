@@ -56,21 +56,24 @@ int _nextspace(char *s, int a)
  */
 int *_strlen(char *s)
 {
-	int i = 0, n = 0;
-	int a[2];
+	int i = 0, n = 0, j = 0;
+	int a[3];
 	int *p;
 
 	while (s[i] != '\0')
 	{
-		i++;
 		if (s[i] == ' ' && (s[i + 1] != ' ' && s[i + 1] != '\0'))
 		{
 			n++;
 		}
+		if (s[i] != ' ')
+			j++;
+		i++;
 	}
 
 	a[0] = i;
 	a[1] = n;
+	a[2] = j;
 
 	p = a;
 
@@ -97,12 +100,12 @@ char **strtow(char *str)
 	len = lenspace[0];
 	space = lenspace[1];
 
-	if (str == NULL || len == 0)
+	if (str == NULL || len == 0 || lenspace[2] == 0)
 		return (NULL);
-	a = malloc((space + 1) * sizeof(char *));
+	a = malloc((space + 2) * sizeof(char *));
 	if (a == NULL)
 		return (NULL);
-	for (i = 0; i < len + 1; i++)
+	for (i = 0; i < len; i++)
 	{
 		if (str[i] != ' ')
 		{
@@ -126,5 +129,6 @@ char **strtow(char *str)
 			}
 		}
 	}
+	a[cword] = NULL;
 	return (a);
 }
