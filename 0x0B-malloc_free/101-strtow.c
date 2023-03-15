@@ -36,7 +36,7 @@ int _nextspace(char *s, int a)
 
 	while (s[i] != '\0')
 	{
-		if (s[i] == ' ' && s[i + 1] != ' ' && s[i + 1] !='\0')
+		if (s[i] == ' ' && s[i + 1] != ' ' && s[i + 1] != '\0')
 		{
 			return (i);
 		}
@@ -63,7 +63,7 @@ int *_strlen(char *s)
 	while (s[i] != '\0')
 	{
 		i++;
-		if (s[i] == ' ' && (s[i + 1] != ' ' && s[i + 1] !='\0'))
+		if (s[i] == ' ' && (s[i + 1] != ' ' && s[i + 1] != '\0'))
 		{
 			n++;
 		}
