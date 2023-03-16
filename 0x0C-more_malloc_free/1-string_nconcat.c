@@ -52,7 +52,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (j = 0; j < len2; j++)
 	{
 		*(p + i + j) = s2[j];
-		if (j + 1 == n || s2[j + 1] == '\0')
+		if (j + 1 == n || j + 1 == len2)
 		{
 			*(p + i + j + 1) = '\0';
 			break;
