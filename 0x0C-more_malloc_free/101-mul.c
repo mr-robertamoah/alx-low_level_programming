@@ -179,6 +179,7 @@ int *_mul(char *s1, char *s2, int end1, int end2, int c_over, int i, int j)
 {
 	int res[2];
 	int res_int, a, b;
+	int *r;
 
 	if (!end2 && s2[j] == '\0')
 		end2 = 1;
@@ -186,18 +187,19 @@ int *_mul(char *s1, char *s2, int end1, int end2, int c_over, int i, int j)
 	if (end1)
 		a = 1;
 	else
-		a = atoi(s1[i]);
+		a = s1[i] + '0';
 
 	if (end2)
 		b = 1;
 	else
-		b = atoi(s2[i]);
+		b = s2[i] + '0';
 
 	res_int = a * b + c_over;
 	res[1] = res_int / 10;
 	res[0] = (res_int % 10);
 
-	return (res);
+	r = res;
+	return (r);
 }
 
 /**
@@ -206,14 +208,15 @@ int *_mul(char *s1, char *s2, int end1, int end2, int c_over, int i, int j)
  * @s2: string
  * @len1: int
  * @len2: int
+ * @t: int
  *
  * Description: multiplies the digits of two strings
  *
  * Return: char **
  */
-char **mul_array(char *s1, char *s2, int len1, int len2)
+char **mul_array(char *s1, char *s2, int len1, int len2, int t)
 {
-	int end1, end2, i, j, pi, a, b, c_over = 0;
+	int end1, end2, i, j, pi, c_over = 0;
 	int res[2];
 	char *q;
 	char **p;
@@ -251,7 +254,7 @@ char **mul_array(char *s1, char *s2, int len1, int len2)
 			}
 		}
 		if (i + 1 == len1)
-			p[pi] == NULL;
+			p[pi] = NULL;
 	}
 	return (p);
 }
@@ -281,9 +284,9 @@ void _print(char *s)
  *
  * Description: multiply two arguments
  *
- * Return: void *
+ * Return: int
  */
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char **p;
 	char *s;
@@ -313,10 +316,12 @@ void main(int argc, char *argv[])
 	s1 = _strrev(argv[1], len1);
 	s2 = _strrev(argv[2], len2);
 
-	p = mul_array(s1, s2, len1, len2);
+	p = mul_array(s1, s2, len1, len2, t);
 	free(s1);
 	free(s2);
 	s = add_flat(p, t);
 	_print(_strrev(s, _strlen(s)));
 	freea(p);
+
+	return (0);
 }
