@@ -232,7 +232,6 @@ char **mul_array(char *s1, char *s2, int len1, int len2, int t)
 	{
 		if (!end1 && s1[i] == '\0')
 			end1 = 1;
-
 		for (j = 0; j < len2; j++)
 		{
 			if (j == 0)
