@@ -42,14 +42,16 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 char *_strrev(char *s, unsigned int n)
 {
 	unsigned int i = 0;
-	char *ns;
+	char tmp;
 
-	for (; i < n; i++)
+	for (; i < n / 2; i++)
 	{
-		ns[i] = s[n - i - 1];
+		tmp = s[i];
+		s[i] = s[n - i - 1];
+		s[n - i - 1] = tmp;
 	}
 
-	return (ns);
+	return (s);
 }
 
 /**
@@ -216,10 +218,10 @@ int *_mul(char *s1, char *s2, int end1, int end2, int c_over, int i, int j)
  */
 char **mul_array(char *s1, char *s2, int len1, int len2, int t)
 {
-	int end1, end2, i, j, pi, c_over = 0;
-	int res[2];
+	int end1 = 0, end2 = 0, i, j, pi, c_over = 0;
+	int *res;
 	char *q;
-	char **p;
+	char **p = malloc((t + 1) * sizeof(char));
 
 	if (p == NULL)
 	{
