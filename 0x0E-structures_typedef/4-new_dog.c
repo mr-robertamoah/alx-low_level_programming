@@ -40,7 +40,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (d == NULL)
 		return (NULL);
 
-	if (name != NULL)
+	if (name == NULL)
+	{
+		d->name = NULL;
+	}
+	else
 	{
 		d->name = malloc(sizeof(name));
 
@@ -50,7 +54,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 		_strcpy(d->name, name);
 	}
 
-	if (owner != NULL)
+	if (owner == NULL)
+	{
+		d->owner = NULL;
+	}
+	else
 	{
 		d->owner = malloc(sizeof(owner));
 
