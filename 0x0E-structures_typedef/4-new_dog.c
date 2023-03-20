@@ -24,36 +24,34 @@ void _strcpy(char *a, char *b)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t new_d;
 	dog_t *d;
-
-	if (name != NULL)
-	{
-		new_d.name = malloc(sizeof(name));
-
-		if (new_d.name == NULL)
-			return (NULL);
-
-		_strcpy(new_d.name, name);
-	}
-
-	if (owner != NULL)
-	{
-		new_d.owner = malloc(sizeof(owner));
-
-		if (new_d.owner == NULL)
-			return (NULL);
-
-		_strcpy(new_d.owner, owner);
-	}
-
-	new_d.age = age;
 
 	d = malloc(sizeof(dog_t));
 
 	if (d == NULL)
 		return (NULL);
 
-	d = &new_d;
+	if (name != NULL)
+	{
+		d->name = malloc(sizeof(name));
+
+		if (d->name == NULL)
+			return (NULL);
+
+		_strcpy(d->name, name);
+	}
+
+	if (owner != NULL)
+	{
+		d->owner = malloc(sizeof(owner));
+
+		if (d->owner == NULL)
+			return (NULL);
+
+		_strcpy(d->owner, owner);
+	}
+
+	d->age = age;
+
 	return (d);
 }
