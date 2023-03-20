@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include "dog.h"
 
+/**
+ * _strcpy - copy string
+ * @a: string
+ * @b: string
+ *
+ * Description: copy from one string to another
+ *
+ * Return: void
+ */
 void _strcpy(char *a, char *b)
 {
 	int i;
