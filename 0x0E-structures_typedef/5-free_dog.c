@@ -2,7 +2,7 @@
 #include "dog.h"
 
 /**
- * init_dog - initialize struct dog
+ * free_dog - initialize struct dog
  * @d: struct dog pointer
  *
  * Description: initialize a struct dog with the values of
