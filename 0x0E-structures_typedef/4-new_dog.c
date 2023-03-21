@@ -14,6 +14,12 @@ void _strcpy(char *a, char *b)
 {
 	int i;
 
+	if (b == NULL)
+	{
+		a = b;
+		return;
+	}
+
 	for (i = 0; b[i] != '\0'; i++)
 		a[i] = b[i];
 
@@ -40,33 +46,19 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (d == NULL)
 		return (NULL);
 
-	if (name == NULL)
-	{
+	d->name = malloc(sizeof(name));
+
+	if (d->name == NULL)
 		return (NULL);
-	}
-	else
-	{
-		d->name = malloc(sizeof(name));
 
-		if (d->name == NULL)
-			return (NULL);
+	_strcpy(d->name, name);
 
-		_strcpy(d->name, name);
-	}
+	d->owner = malloc(sizeof(owner));
 
-	if (owner == NULL)
-	{
+	if (d->owner == NULL)
 		return (NULL);
-	}
-	else
-	{
-		d->owner = malloc(sizeof(owner));
 
-		if (d->owner == NULL)
-			return (NULL);
-
-		_strcpy(d->owner, owner);
-	}
+	_strcpy(d->owner, owner);
 
 	d->age = age;
 
