@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
 	}
 
 	if (
-		argv[2][0] != '+' && argv[2][0] != '-' && argv[2][0] != '*' &&
-		argv[2][0] != '/' && argv[2][0] != '%'
+		(argv[2][0] != '+' && argv[2][0] != '-' && argv[2][0] != '*' &&
+		argv[2][0] != '/' && argv[2][0] != '%') || argv[2][1] != '\0'
 	)
 	{
 		puts("Error");
@@ -46,7 +46,5 @@ int main(int argc, char *argv[])
 	res = f(a, b);
 
 	printf("%d\n", res);
-
-	free(f);
 	return (0);
 }
