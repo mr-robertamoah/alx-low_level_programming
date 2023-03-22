@@ -46,5 +46,7 @@ int main(int argc, char *argv[])
 	res = f(a, b);
 
 	printf("%d\n", res);
+
+	free(f);
 	return (0);
 }
