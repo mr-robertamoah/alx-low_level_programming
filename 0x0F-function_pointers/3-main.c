@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	sym[1] = '\0';
 
 	f = get_op_func(sym);
-	res = f(a, b);
+	res = f == NULL ? NULL : f(a, b);
 
 	printf("%d\n", res);
 	return (0);
