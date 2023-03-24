@@ -13,44 +13,39 @@
 void print_all(const char * const format, ...)
 {
 	va_list vl;
-	unsigned int i, j;
-	char *va_s;
-	struct ss
-	{
-		char c;
-		void dt;
-		char *s;
-	};
-	struct ss ss_array[] = {
-		{'c', char, "%c"}, {'i', int, "%i"}, {'f', float, "%f"}, {'s', char *, "%s"}, {'\0', NULL, NULL}
-	};
-	struct ss *s = malloc((struct ss));
+	unsigned int i;
+	char *s, *separator = ", ";
 
-	va_start(vl, n);
+	va_start(vl, format);
 	i = 0;
-	while (format[i] != '\0')
+	while (format && format[i] != '\0')
 	{
-		s = ss_array[4];
-		j = 0;
-		while ((ss_array[j]).dt == NULL)
-		{
-			if ((ss_array[j]).c == format[i])
-			{
-				s = ss_array[j];
-				break;
-			}
-			j++;
-		}
-		if (s.dt != NULL && s.c != 's')
-			printf(s.s, va_arg(vl, s.dt);
-		else if (s.c == 's')
-			printf(s.s, (va_s = va_arg(vl, char *)) == NULL ? "(nil)" : va_s);
+		if (format[i + 1] == '\0')
+			separator = "";
 
-		if (format[i + 1] != '\0')
-			printf("%s", ", ");
+		switch (format[i])
+		{
+			case 'c':
+				printf("%c%s", va_arg(vl, int), separator);
+				break;
+			case 'i':
+				printf("%d%s", va_arg(vl, int), separator);
+				break;
+			case 'f':
+				printf("%f%s", va_arg(vl, double), separator);
+				break;
+			case 's':
+				s = va_arg(vl, char *);
+				if (s == NULL)
+					s = "(nil)";
+				printf("%s%s", s, separator);
+			default:
+				break;
+		}
+
 		i++;
 	}
-	free(s);
+
 	printf("\n");
 	va_end(vl);
 }
