@@ -22,6 +22,7 @@ list_t *create_node(list_t *tmp, const char *str)
 			len++;
 	}
 
+	tmp->str = malloc(sizeof(char) * (len + 1));
 	tmp->str = s;
 	tmp->len = len;
 
@@ -41,7 +42,7 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *tmp, *nextnode;
 
-	tmp = malloc(sizeof(list_t));
+	tmp = malloc(sizeof(list_t *));
 
 	if (tmp == NULL)
 		return (NULL);
@@ -57,6 +58,5 @@ list_t *add_node_end(list_t **head, const char *str)
 		nextnode = nextnode->next;
 
 	nextnode->next = tmp;
-
 	return (tmp);
 }
