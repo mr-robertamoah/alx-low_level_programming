@@ -12,33 +12,29 @@
 size_t print_list(const list_t *h)
 {
 	size_t i = 0, nodes = 0;
-	list_t *tmp;
 
 	if (h == NULL)
 		return (nodes);
-	tmp = malloc(sizeof(list_t));
-	if (tmp == NULL)
-		return (nodes);
 
-	*tmp = *h;
-	while (tmp != NULL)
+	while (h != NULL)
 	{
-		if (tmp->str == NULL)
+		if (h->str == NULL)
 		{
-			tmp->str = "(nil)";
-			tmp->len = 0;
+			printf("[0] (nil)\n");
 		}
-		_putchar('[');
-		_putchar(tmp->len + '0');
-		_putchar(']');
-		_putchar(' ');
-		i = 0;
-		while (tmp->str[i] != '\0')
-			_putchar(tmp->str[i++]);
-		_putchar('\n');
-		tmp = tmp->next;
+		else
+		{
+			_putchar('[');
+			_putchar(h->len + '0');
+			_putchar(']');
+			_putchar(' ');
+			i = 0;
+			while (h->str[i] != '\0')
+				_putchar(h->str[i++]);
+			_putchar('\n');
+		}
+		h = h->next;
 		nodes++;
 	}
-	free(tmp);
 	return (nodes);
 }
