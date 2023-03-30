@@ -12,7 +12,7 @@
  */
 list_t *create_node(list_t *tmp, const char *str)
 {
-	int len = 0;
+	unsigned int len = 0;
 
 	if (str != NULL)
 	{
@@ -49,8 +49,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	tmp = create_node(tmp, str);
 /*printf("%s %d\n", tmp->str, tmp->len);*/
-	if (*head != NULL)
-		tmp->next = *head;
+	tmp->next = *head;
 	*head = tmp;
 
 	return (tmp);
