@@ -45,7 +45,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	tmp = malloc(sizeof(list_t));
 
-	if (tmp == NULL)
+	if (tmp == NULL || head == NULL)
 		return (NULL);
 	tmp = create_node(tmp, str);
 /*printf("%s %d\n", tmp->str, tmp->len);*/
