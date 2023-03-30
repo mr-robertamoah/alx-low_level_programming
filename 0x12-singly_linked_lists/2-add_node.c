@@ -12,17 +12,19 @@
  */
 list_t *create_node(list_t *tmp, const char *str)
 {
-	char *s;
 	int len = 0;
 
 	if (str != NULL)
 	{
-		s = strdup(str);
-		while (s[len] != '\0')
+		tmp->str = strdup(str);
+		while (tmp->str[len] != '\0')
 			len++;
 	}
+	else
+	{
+		tmp->str = NULL;
+	}
 
-	tmp->str = s;
 	tmp->len = len;
 
 	return (tmp);
