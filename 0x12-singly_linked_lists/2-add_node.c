@@ -14,16 +14,9 @@ list_t *create_node(list_t *tmp, const char *str)
 {
 	unsigned int len = 0;
 
-	if (str != NULL)
-	{
-		tmp->str = strdup(str);
-		while (tmp->str[len] != '\0')
-			len++;
-	}
-	else
-	{
-		tmp->str = NULL;
-	}
+	tmp->str = strdup(str);
+	while (str && str[len] != '\0')
+		len++;
 
 	tmp->len = len;
 
