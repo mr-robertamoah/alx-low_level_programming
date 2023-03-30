@@ -14,6 +14,8 @@ size_t print_list(const list_t *h)
 	size_t i = 0, nodes = 0;
 	list_t *tmp;
 
+	if (h == NULL)
+		return (nodes);
 	tmp = malloc(sizeof(list_t));
 	if (tmp == NULL)
 		return (nodes);
