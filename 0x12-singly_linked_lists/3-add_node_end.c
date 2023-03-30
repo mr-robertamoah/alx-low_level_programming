@@ -12,18 +12,11 @@
  */
 list_t *create_node(list_t *tmp, const char *str)
 {
-	char *s;
-	int len = 0;
+	unsigned int len = 0;
 
-	if (str != NULL)
-	{
-		s = strdup(str);
-		while (s[len] != '\0')
-			len++;
-	}
-
-	tmp->str = malloc(sizeof(char) * (len + 1));
-	tmp->str = s;
+	tmp->str = strdup(str);
+	while (str && str[len] != '\0')
+		len++;
 	tmp->len = len;
 
 	return (tmp);
