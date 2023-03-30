@@ -15,8 +15,7 @@ size_t print_list(const list_t *h)
 	list_t *tmp;
 
 	tmp = malloc(sizeof(list_t));
-
-	if (h == NULL || tmp == NULL)
+	if (tmp == NULL)
 		return (nodes);
 
 	*tmp = *h;
@@ -38,6 +37,6 @@ size_t print_list(const list_t *h)
 		tmp = tmp->next;
 		nodes++;
 	}
-
+	free(tmp);
 	return (nodes);
 }
