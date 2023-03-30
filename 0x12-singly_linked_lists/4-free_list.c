@@ -15,7 +15,7 @@ void free_next_node(list_t *tmp)
 	{
 		free_next_node(tmp->next);
 	}
-
+	free(tmp->str);
 	free(tmp);
 }
 
