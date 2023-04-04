@@ -1,13 +1,13 @@
 #include "lists.h"
 
 /**
- * get_nodeint - get node
+ * get_nodeint_at_index - get node
  * @head: first listint_t node
  * @index: index of node
  *
  * Description: get the nth element of the list
  *
- * Return: 
+ * Return: listint_t *
  */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
