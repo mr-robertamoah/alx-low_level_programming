@@ -5,7 +5,7 @@
  * @h: first listint_t node
  * @lastnext: listint_t which is the last next
  * @nodes: pointer to size_t
- * @nodes: pointer to int
+ * @count: pointer to int
  *
  * Description: print the nodes in the list and return
  * the number of nodes
@@ -17,9 +17,8 @@ void free_node(
 	int *count
 )
 {
-	if (!h)
+	if (!h || (h == lastnext && *count))
 		return;
-
 	if (h == h->next || (h->next == lastnext && *count))
 		h->next = NULL;
 
