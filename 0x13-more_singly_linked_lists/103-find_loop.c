@@ -4,7 +4,7 @@ listint_t *has_loops(listint_t **head, tracker_t *track);
 listint_t *get_last_nexts(listint_t *head, listint_t *slow);
 
 /**
- * has_loop - loop
+ * has_loops - loop
  * @head: first listint_t node
  * @track: struct tracker
  *
@@ -27,7 +27,7 @@ listint_t *has_loops(listint_t **head, tracker_t *track)
 }
 
 /**
- * get_last_next - get last next
+ * get_last_nexts - get last next
  * @head: first listint_t node
  * @slow: listint_t which determines there is a loop
  *
