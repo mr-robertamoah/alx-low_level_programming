@@ -72,14 +72,20 @@ listint_t *has_loop(listint_t **head)
 listint_t *get_last_next(listint_t **h, listint_t *slow)
 {
 	listint_t *head;
+	int count = 0;
 
 	head = *h;
 	while (head != NULL && slow != NULL)
 	{
+		count++;
 		slow = slow->next;
 		head = head->next;
 		if (head == slow)
+		{
+			if (count == 1)
+				return (head->next);
 			return (head);
+		}
 	}
 
 	return (NULL);
