@@ -6,6 +6,7 @@
  * @lastnext: listint_t which is the last next
  * @nodes: pointer to size_t
  * @count: pointer to int
+ * @counth: pointer to int
  *
  * Description: print the nodes in the list and return
  * the number of nodes
@@ -14,19 +15,27 @@
  */
 void free_node(
 	listint_t *h, listint_t *lastnext, size_t *nodes,
-	int *count
+	int *count, int *counth
 )
 {
-	if (!h || (h == lastnext && *count))
+	if (!h)
 		return;
 	if (h == h->next || (h->next == lastnext && *count))
 		h->next = NULL;
+
+	if (h == lastnext && h->next && h->next->next == lastnext)
+	{
+		free(h->next);
+		free(h);
+		*nodes = 2;
+		return;
+	}
 
 	if (h->next == lastnext)
 		*count = *count + 1;
 
 	if (h->next != NULL)
-		free_node(h->next, lastnext, nodes, count);
+		free_node(h->next, lastnext, nodes, count, counth);
 
 	free(h);
 	*nodes = *nodes + 1;
@@ -45,9 +54,9 @@ void free_node(
 size_t free_list(listint_t **h, listint_t *lastnext)
 {
 	size_t nodes = 0;
-	int count = 0;
+	int count = 0, counth = 0;
 
-	free_node(*h, lastnext, &nodes, &count);
+	free_node(*h, lastnext, &nodes, &count, &counth);
 
 	*h = NULL;
 
