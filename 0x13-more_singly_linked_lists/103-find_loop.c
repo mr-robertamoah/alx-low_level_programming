@@ -1,24 +1,26 @@
 #include "lists.h"
 
+listint_t *has_loops(listint_t **head, tracker_t *track);
+listint_t *get_last_nexts(listint_t *head, listint_t *slow);
+
 /**
  * has_loop - loop
  * @head: first listint_t node
+ * @track: struct tracker
  *
  * Description: check if linked list has loops
  *
  * Return: listint_t *
  */
-listint_t *has_loop(listint_t **head)
+listint_t *has_loops(listint_t **head, tracker_t *track)
 {
-	listint_t *slow, *fast;
-
-	fast = slow = *head;
-	while (slow && fast && fast->next != NULL)
+	track->fast = track->slow = *head;
+	while (track->slow && track->fast && track->fast->next != NULL)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-		if (slow == fast)
-			return (slow);
+		track->slow = track->slow->next;
+		track->fast = track->fast->next->next;
+		if (track->slow == track->fast)
+			return (track->slow);
 	}
 
 	return (NULL);
@@ -26,19 +28,17 @@ listint_t *has_loop(listint_t **head)
 
 /**
  * get_last_next - get last next
- * @h: first listint_t node
+ * @head: first listint_t node
  * @slow: listint_t which determines there is a loop
  *
  * Description: safely print a listint_t list
  *
  * Return: listint_t *
  */
-listint_t *get_last_next(listint_t **h, listint_t *slow)
+listint_t *get_last_nexts(listint_t *head, listint_t *slow)
 {
-	listint_t *head;
 	int count = 0;
 
-	head = *h;
 	while (head != NULL && slow != NULL)
 	{
 		count++;
@@ -65,11 +65,15 @@ listint_t *get_last_next(listint_t **h, listint_t *slow)
  */
 listint_t *find_listint_loop(listint_t *head)
 {
+	tracker_t track = {NULL, NULL};
+
 	if (head == NULL)
 		return (NULL);
 
-	return (get_last_next(
-			(listint_t **)&head,
-			has_loop((listint_t **)&head))
+/*	track->slow = NULL;*/
+/*	track->fast = NULL;*/
+	return (get_last_nexts(
+			head,
+			has_loops(&head, &track))
 	);
 }
