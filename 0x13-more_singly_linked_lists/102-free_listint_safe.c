@@ -16,7 +16,7 @@ void free_node(listint_t *h, listint_t *lastnext, size_t *nodes)
 	if (!h)
 		return;
 
-	if (*h == lastnext)
+	if (h == lastnext)
 	{
 		*nodes = *nodes + 1;
 		free(h);
