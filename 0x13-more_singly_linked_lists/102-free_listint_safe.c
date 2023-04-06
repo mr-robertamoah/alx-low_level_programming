@@ -16,6 +16,13 @@ void free_node(listint_t *h, listint_t *lastnext, size_t *nodes)
 	if (!h)
 		return;
 
+	if (*h == lastnext)
+	{
+		*nodes = *nodes + 1;
+		free(h);
+		return;
+	}
+
 	if (h->next != lastnext && h->next != NULL)
 		free_node(h->next, lastnext, nodes);
 
