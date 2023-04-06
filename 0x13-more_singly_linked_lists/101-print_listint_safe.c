@@ -18,7 +18,6 @@ size_t print_list(listint_t **h, listint_t *lastnext)
 	head = *h;
 	while (head != NULL)
 	{
-		nodes++;
 		if (head == lastnext && count)
 		{
 			printf("-> [%p] %d\n", (void *) head, head->n);
@@ -26,6 +25,7 @@ size_t print_list(listint_t **h, listint_t *lastnext)
 		}
 		else
 		{
+			nodes++;
 			printf("[%p] %d\n", (void *) head, head->n);
 		}
 		if (head == lastnext && count == 0)
