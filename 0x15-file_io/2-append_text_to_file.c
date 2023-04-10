@@ -27,9 +27,10 @@ int append_text_to_file(const char *filename, char *text_content)
 		while (text_content[len] != '\0')
 			len++;
 
-		buf = malloc(sizeof(char) * len);
+		buf = malloc(sizeof(char) * (len + 1));
 		if (buf == NULL)
 			return (-1);
+		buf = text_content;
 	}
 
 	check = write(fd, buf, len);
