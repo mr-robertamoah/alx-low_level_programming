@@ -26,7 +26,6 @@ int create_file(const char *filename, char *text_content)
 	{
 		while (text_content[len] != '\0')
 			len++;
-		len++;
 
 		buf = malloc(sizeof(char) * len);
 		if (buf == NULL)
@@ -38,10 +37,10 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	check = write(fd, buf, len);
-	if (check == -1)
-		return (0);
-
 	free(buf);
 	close(fd);
+	if (check == -1 || check != len)
+		return (-1);
+
 	return (1);
 }
