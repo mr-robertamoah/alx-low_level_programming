@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * create_file - read
+ * append_text_to_file - read
  * @filename: name of file to read from
  * @text_content: string to append into file
  *
@@ -26,20 +26,15 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		while (text_content[len] != '\0')
 			len++;
-
-		buf = malloc(sizeof(char) * len);
-		if (buf == NULL)
-			return (-1);
-
-		check = write(fd, buf, len);
-		if (check == -1)
-		{
-			free(buf);
-			return (-1);
-		}
-
-		free(buf);
 	}
+
+	buf = malloc(sizeof(char) * len);
+	if (buf == NULL)
+		return (-1);
+
+	check = write(fd, buf, len);
+	if (check == -1)
+		return (-1);
 
 	close(fd);
 	return (1);
