@@ -12,7 +12,7 @@
 int main(int ac, char *av[])
 {
 	int fd_from, fd_to;
-	ssize_t check_from, check_to, read_char = 0;
+	ssize_t check_from, check_to;
 	char buf[1024];
 
 	if (ac != 3)
@@ -25,12 +25,11 @@ int main(int ac, char *av[])
 		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	while ((check_from = read(fd_from, buf, 1024)))
 	{
-		read_char++;
 		check_to = write(fd_to, buf, check_from);
 		if (check_from == -1 || check_to == -1)
 			break;
 	}
-	if (fd_from == -1 || (check_from == -1 && !read_char))
+	if (fd_from == -1 || check_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
