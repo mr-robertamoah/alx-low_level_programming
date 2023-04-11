@@ -46,10 +46,10 @@ int clear_bit(unsigned long int *n, unsigned int index)
 		count_i = count_bits(i);
 	}
 
+	if (index != 0)
+		return (-1);
+
 	*n = *n | i;
 	*n = *n ^ i;
-/*	if (index != 0)*/
-/*		return (-1);*/
-
 	return (1);
 }
