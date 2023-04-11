@@ -21,8 +21,7 @@ int main(int ac, char *av[])
 		exit(97);
 	}
 	fd_from = open(av[1], O_RDONLY);
-	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND,
-		S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fd_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 664);
 	while ((check_from = read(fd_from, buf, 1024)))
 	{
 		check_to = write(fd_to, buf, check_from);
