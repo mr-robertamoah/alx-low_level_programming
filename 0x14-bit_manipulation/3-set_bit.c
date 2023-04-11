@@ -34,16 +34,13 @@ unsigned int count_bits(unsigned long int n)
 int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int i = 1;
-	unsigned int count = 0, count_i = 1;
 
 	if (index > 63)
 		return (-1);
-	count = count_bits(*n);
 	while (index != 0)
 	{
 		i = i << 1;
 		index--;
-		count_i = count_bits(i);
 	}
 
 	*n = *n | i;
