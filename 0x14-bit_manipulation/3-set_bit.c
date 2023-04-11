@@ -16,13 +16,13 @@ int set_bit(unsigned long int *n, unsigned int index)
 
 	while (i != *n)
 	{
-		if (index == (unsigned int) 0)
+		if (index == 0)
 			break;
 		i = i << 1;
 		index--;
 	}
 
-	if (index != (unsigned int) 0)
+	if (index != 0)
 		return (-1);
 
 	*n = *n | i;
