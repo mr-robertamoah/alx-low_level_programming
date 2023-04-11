@@ -39,17 +39,14 @@ int set_bit(unsigned long int *n, unsigned int index)
 	if (index > 63)
 		return (-1);
 	count = count_bits(*n);
-	while (count_i != count)
+	while (index ! = 0)
 	{
-		if (index == 0)
-			break;
 		i = i << 1;
 		index--;
 		count_i = count_bits(i);
 	}
 
-	if (index == 0)
-		*n = *n | i;
+	*n = *n | i;
 
 	return (1);
 }
