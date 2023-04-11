@@ -40,7 +40,7 @@ int main(int ac, char *av[])
 	check_to = close(fd_to);
 	if (check_from || check_to)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close %d\n",
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",
 			check_from == -1 ? fd_from : fd_to);
 		exit(100);
 	}
