@@ -36,6 +36,8 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	unsigned long int i = 1;
 	unsigned int count = 0, count_i = 1;
 
+	if (index > 63)
+		return (-1);
 	count = count_bits(*n);
 	while (count_i != count)
 	{
@@ -45,9 +47,6 @@ int clear_bit(unsigned long int *n, unsigned int index)
 		index--;
 		count_i = count_bits(i);
 	}
-
-	if (index != 0)
-		return (-1);
 
 	*n = *n | i;
 	*n = *n ^ i;
