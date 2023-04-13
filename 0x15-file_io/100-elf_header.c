@@ -48,7 +48,7 @@ void print_magic(Elf64_Ehdr *fh)
 
 	for (i = 0; i < EI_NIDENT; i++)
 	{
-		printf("%02x", e_ident[i]);
+		printf("%02x", fh->e_ident[i]);
 
 		if (i == EI_NIDENT - 1)
 			printf("\n");
@@ -232,7 +232,7 @@ void print_entry(Elf64_Ehdr *fh)
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 
-	if (e_ident[EI_CLASS] == ELFCLASS32)
+	if (fh->e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
 
 	else
@@ -304,7 +304,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	print_type(fh);
 	print_entry(fh);
 
-	free(header);
+	free(fh);
 	close_elf(o);
 	return (0);
 }
