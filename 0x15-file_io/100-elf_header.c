@@ -330,6 +330,7 @@ int main(int arc, char **argv)
 		print_err("Reading header failed.");
 
 	ensure_is_elf(fh);
+	printf("ELF Header:\n");
 	print_magic(fh);
 	print_class(fh);
 	print_data(fh);
