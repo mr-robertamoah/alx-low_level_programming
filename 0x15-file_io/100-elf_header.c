@@ -50,7 +50,7 @@ void print_magic(Elf64_Ehdr *fh)
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		if (i == 0)
-			printf(" Magic: \t");
+			printf("  Magic:   ");
 
 		printf("%02x", fh->e_ident[i]);
 
@@ -72,7 +72,7 @@ void print_magic(Elf64_Ehdr *fh)
  */
 void print_class(Elf64_Ehdr *fh)
 {
-	printf(" Class: \t");
+	printf("  Class:                             ");
 
 	switch (fh->e_ident[EI_CLASS])
 	{
@@ -101,7 +101,7 @@ void print_class(Elf64_Ehdr *fh)
  */
 void print_data(Elf64_Ehdr *fh)
 {
-	printf(" Data: \t");
+	printf("  Data:                              ");
 
 	switch (fh->e_ident[EI_DATA])
 	{
@@ -130,7 +130,8 @@ void print_data(Elf64_Ehdr *fh)
  */
 void print_version(Elf64_Ehdr *fh)
 {
-	printf(" Version: \t%d", fh->e_ident[EI_VERSION]);
+	printf("  Version:                           %d",
+		fh->e_ident[EI_VERSION]);
 
 	if (fh->e_ident[EI_VERSION] == EV_CURRENT)
 		printf(" (current)");
@@ -148,7 +149,7 @@ void print_version(Elf64_Ehdr *fh)
  */
 void print_osabi(Elf64_Ehdr *fh)
 {
-	printf(" OS/ABI: \t");
+	printf("  OS/ABI:                            ");
 
 	switch (fh->e_ident[EI_OSABI])
 	{
@@ -198,7 +199,8 @@ void print_osabi(Elf64_Ehdr *fh)
  */
 void print_abiversion(Elf64_Ehdr *fh)
 {
-	printf(" ABI Version: \t%d\n", fh->e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n",
+		fh->e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -214,7 +216,7 @@ void print_type(Elf64_Ehdr *fh)
 {
 	unsigned int e_type = fh->e_type;
 
-	printf(" Type: \t");
+	printf("  Type:                              ");
 
 	if (fh->e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
@@ -254,7 +256,7 @@ void print_epa(Elf64_Ehdr *fh)
 {
 	unsigned long int e_entry = fh->e_entry;
 
-	printf(" Entry point address: \t");
+	printf("  Entry point address:               ");
 
 	if (fh->e_ident[EI_DATA] == ELFDATA2MSB)
 	{
