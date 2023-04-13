@@ -78,7 +78,7 @@ void print_class(Elf64_Ehdr *fh)
 			printf("ELF32\n");
 			break;
 		case ELFCLASS64:
-			printf("Elf64\n");
+			printf("ELF64\n");
 			break;
 		default:
 			printf("<unknown %x>\n", fh->e_ident[EI_CLASS]);
