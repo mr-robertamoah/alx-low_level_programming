@@ -25,10 +25,10 @@ void ensure_is_elf(Elf64_Ehdr *fh)
 	for (i = 0; i < 4; i++)
 	{
 		if (
-				fh->e_ident[i] != EI_MAG0 &&
-				fh->e_ident[i] != EI_MAG1 &&
-				fh->e_ident[i] != EI_MAG2 &&
-				fh->e_ident[i] != EI_MAG3
+				fh->e_ident[i] != 127 &&
+				fh->e_ident[i] != 'E' &&
+				fh->e_ident[i] != 'L' &&
+				fh->e_ident[i] != 'F'
 		   )
 			print_err("File is not an elf file.");
 	}
@@ -324,10 +324,17 @@ int main(int arc, char **argv)
 
 	fh = malloc(sizeof(Elf64_Ehdr));
 	if (fh == NULL)
+	{
+		close(fd);
 		print_err("Failed to allocate memory.");
+	}
 
 	if (read(fd, fh, sizeof(Elf64_Ehdr)))
+	{
+		free(fh);
+		close(fd);
 		print_err("Reading header failed.");
+	}
 
 	ensure_is_elf(fh);
 	printf("ELF Header:\n");
@@ -339,7 +346,7 @@ int main(int arc, char **argv)
 	print_abiversion(fh);
 	print_type(fh);
 	print_epa(fh);
-	_close(fd);
 	free(fh);
+	_close(fd);
 	return (0);
 }
