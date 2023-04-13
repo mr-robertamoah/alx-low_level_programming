@@ -314,7 +314,7 @@ int main(int arc, char **argv)
 	if (arc != 2)
 		print_err("No file was provided.");
 
-	fd = open(argv[1], O_RDONLY)
+	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		print_err("Opening file failed.");
 
