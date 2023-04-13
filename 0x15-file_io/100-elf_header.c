@@ -20,11 +20,14 @@ void print_epa(Elf64_Ehdr *fh);
  */
 void ensure_is_elf(Elf64_Ehdr *fh)
 {
+	int i;
+
+	for (i = 0; i < 4; i++)
 	if (
-		fh->e_ident[0] != EI_MAG0 &&
-		fh->e_ident[1] != EI_MAG1 &&
-		fh->e_ident[2] != EI_MAG2 &&
-		fh->e_ident[3] != EI_MAG3
+		fh->e_ident[i] != EI_MAG0 &&
+		fh->e_ident[i] != EI_MAG1 &&
+		fh->e_ident[i] != EI_MAG2 &&
+		fh->e_ident[i] != EI_MAG3
 	)
 		print_err("File is not an elf file.");
 }
