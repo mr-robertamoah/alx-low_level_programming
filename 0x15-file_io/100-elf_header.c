@@ -23,13 +23,15 @@ void ensure_is_elf(Elf64_Ehdr *fh)
 	int i;
 
 	for (i = 0; i < 4; i++)
-	if (
-		fh->e_ident[i] != EI_MAG0 &&
-		fh->e_ident[i] != EI_MAG1 &&
-		fh->e_ident[i] != EI_MAG2 &&
-		fh->e_ident[i] != EI_MAG3
-	)
-		print_err("File is not an elf file.");
+	{
+		if (
+				fh->e_ident[i] != EI_MAG0 &&
+				fh->e_ident[i] != EI_MAG1 &&
+				fh->e_ident[i] != EI_MAG2 &&
+				fh->e_ident[i] != EI_MAG3
+		   )
+			print_err("File is not an elf file.");
+	}
 }
 
 /**
@@ -263,7 +265,6 @@ void print_epa(Elf64_Ehdr *fh)
 
 	if (fh->e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
-
 	else
 		printf("%#lx\n", e_entry);
 }
@@ -338,5 +339,6 @@ int main(int arc, char **argv)
 	print_type(fh);
 	print_epa(fh);
 	_close(fd);
+	free(fh);
 	return (0);
 }
