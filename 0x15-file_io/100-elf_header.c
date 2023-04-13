@@ -148,34 +148,34 @@ void print_osabi(Elf64_Ehdr *fh)
 	switch (fh->e_ident[EI_OSABI])
 	{
 		case ELFOSABI_SYSV:
-			printf("UNIX System V ABI\n");
+			printf("UNIX - System V\n");
 			break;
 		case ELFOSABI_HPUX:
-			printf("HP-UX ABI\n");
+			printf("UNIX - HP-UX\n");
 			break;
 		case ELFOSABI_NETBSD:
-			printf("NetBSD ABI\n");
+			printf("UNIX - NetBSD\n");
 			break;
 		case ELFOSABI_LINUX:
-			printf("Linux ABI\n");
+			printf("UNIX - Linux\n");
 			break;
 		case ELFOSABI_SOLARIS:
-			printf("Solaris ABI\n");
+			printf("UNIX - Solaris\n");
 			break;
 		case ELFOSABI_IRIX:
-			printf("IRIX ABI\n");
+			printf("UNIX - IRIX\n");
 			break;
 		case ELFOSABI_FREEBSD:
-			printf("FreeBSD ABI\n");
+			printf("UNIX - FreeBSD\n");
 			break;
 		case ELFOSABI_TRU64:
-			printf("TRU64 UNIX ABI\n");
+			printf("UNIX - TRU64\n");
 			break;
 		case ELFOSABI_ARM:
-			printf("ARM architecture ABI\n");
+			printf("ARM\n");
 			break;
 		case ELFOSABI_STANDALONE:
-			printf("Stand-alone (embedded) ABI\n");
+			printf("Standalone App\n");
 			break;
 		default:
 			printf("<unknown %x>\n", fh->e_ident[EI_OSABI]);
@@ -314,7 +314,8 @@ int main(int arc, char **argv)
 	if (arc != 2)
 		print_err("No file was provided.");
 
-	if ((fd = open(argv[1], O_RDONLY)) == -1)
+	fd = open(argv[1], O_RDONLY)
+	if (fd == -1)
 		print_err("Opening file failed.");
 
 	fh = malloc(sizeof(Elf64_Ehdr));
