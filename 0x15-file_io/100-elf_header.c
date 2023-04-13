@@ -171,7 +171,7 @@ void print_osabi(Elf64_Ehdr *fh)
 }
 
 /**
- * print_abi - Prints the ABI version of an ELF header.
+ * print_abiversion - Prints the ABI version of an ELF header.
  * @fh: pointer to elf header string
  */
 void print_abiversion(Elf64_Ehdr *fh)
