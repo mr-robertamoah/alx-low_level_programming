@@ -50,7 +50,7 @@ void print_magic(Elf64_Ehdr *fh)
 	{
 		printf("%02x", fh->e_ident[i]);
 
-		if (i == EI_NIDENT - 1)
+		if (i + 1 == EI_NIDENT)
 			printf("\n");
 		else
 			printf(" ");
@@ -114,15 +114,10 @@ void print_version(Elf64_Ehdr *fh)
 	printf("  Version:                           %d",
 	       fh->e_ident[EI_VERSION]);
 
-	switch (fh->e_ident[EI_VERSION])
-	{
-	case EV_CURRENT:
+	if (fh->e_ident[EI_VERSION] == EV_CURRENT)
 		printf(" (current)\n");
-		break;
-	default:
+	else
 		printf("\n");
-		break;
-	}
 }
 
 /**
