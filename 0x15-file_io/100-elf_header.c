@@ -131,9 +131,15 @@ void print_version(Elf64_Ehdr *fh)
 	printf("  Version:                           %d",
 		fh->e_ident[EI_VERSION]);
 
-	if (fh->e_ident[EI_VERSION] == EV_CURRENT)
-		printf(" (current)");
-	printf("\n");
+	switch (fh->e_ident[EI_VERSION])
+	{
+	case EV_CURRENT:
+		printf(" (current)\n");
+		break;
+	default:
+		printf("\n");
+		break;
+	}
 }
 
 /**
