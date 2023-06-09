@@ -24,6 +24,8 @@ void hash_table_print(const hash_table_t *ht)
 			head = ht->array[i];
 			if (head)
 			{
+				if (printed)
+					printf(", ");
 				printf("'%s': '%s'", head->key, head->value);
 				printed = 1;
 
@@ -35,8 +37,6 @@ void hash_table_print(const hash_table_t *ht)
 					tmp = tmp->next;
 				}
 			}
-			if (printed && i + 1 < ht->size && ht->array[i + 1])
-				printf(", ");
 		}
 	}
 
