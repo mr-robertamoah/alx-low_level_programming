@@ -15,25 +15,18 @@ int main(void)
 
     hash_table_array_size = 1024;
     s = "c";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+    printf("%lu, %s\n", key_index((unsigned char *)s, hash_table_array_size), s);
     s = "python";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+    printf("%lu, %s\n", key_index((unsigned char *)s, hash_table_array_size), s);
     s = "Bob";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+    printf("%lu, %s\n", key_index((unsigned char *)s, hash_table_array_size), s);
     s = "N";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+    printf("%lu, %s\n", key_index((unsigned char *)s, hash_table_array_size), s);
     s = "Asterix";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+    printf("%lu, %s\n", key_index((unsigned char *)s, hash_table_array_size), s);
     s = "Betty";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
+    printf("%lu, %s\n", key_index((unsigned char *)s, hash_table_array_size), s);
     s = "98";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));  
+    printf("%lu, %s\n", key_index((unsigned char *)s, hash_table_array_size), s);  
     return (EXIT_SUCCESS);
 }
