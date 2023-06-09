@@ -19,11 +19,12 @@ void print_node(hash_node_t *node, int printed)
 */
 void print_list(hash_node_t *node, int *printed)
 {
-	if (node->next != NULL)
-		print_list(node->next, printed);
-
-	print_node(node, *printed);
-	*printed = 1;
+	while (node != NULL)
+	{
+		print_node(node, *printed);
+		*printed = 1;
+		node = node->next;
+	}
 }
 
 /**
@@ -41,25 +42,24 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *head;
 	int printed = 0;
 
+	if (ht == NULL)
+		return;
+
 	printf("{");
 
-	if (ht != NULL && ht->array != NULL && ht->size != 0)
+	for (i = 0; i < ht->size; i++)
 	{
-		for (i = 0; i < ht->size; i++)
+		head = ht->array[i];
+		if (head && head->next == NULL)
 		{
-			head = ht->array[i];
-			if (head && head->next == NULL)
-			{
-				print_node(head, printed);
-				printed = 1;
-				head  = head->next;
-			}
-			else if (head && head->next)
-			{
-				print_list(head, &printed);
-			}
+			print_node(head, printed);
+			printed = 1;
+			head  = head->next;
+		}
+		else if (head && head->next)
+		{
+			print_list(head, &printed);
 		}
 	}
-
 	printf("}\n");
 }
