@@ -63,7 +63,7 @@ int handle_collision(
 				strcpy(tmp->value, value);
 			}
 			else
-				tmp->value = (char *) value;
+				tmp->value = NULL;
 
 			return (1);
 		}
