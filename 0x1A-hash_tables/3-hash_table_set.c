@@ -16,7 +16,7 @@ int hash_node_create(
 )
 {
 	(*node) = malloc(sizeof(hash_node_t)); /* create the hash_node */
-	if (node == NULL)
+	if (*node == NULL)
 		return (0);
 
 	(*node)->key = strdup(key);
