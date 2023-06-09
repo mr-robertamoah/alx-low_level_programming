@@ -116,7 +116,8 @@ int hash_table_set(
 	if (!result)
 		return (0);
 
-	ht->array[index] = node;
+	if (node)
+		ht->array[index] = node;
 
 	return (1);
 }
