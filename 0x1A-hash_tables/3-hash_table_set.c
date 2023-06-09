@@ -19,7 +19,7 @@ int hash_node_create(
 	if (node == NULL)
 		return (0);
 
-	(*node)->key = (char *) key;
+	(*node)->key = strdup(key);
 	(*node)->value = NULL;
 	(*node)->next = NULL;
 	if (value)
